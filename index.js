@@ -8,20 +8,6 @@ const path = require('path');
 const MODE_HTML = 0;
 const MODE_CONSOLE = 1;
 
-class TreeLevel {
-  constructor(num) {
-    this.num = num;
-  }
-
-  toJSON() {
-    return this.num;
-  }
-
-  toString() {
-    return this.num;
-  }
-}
-
 class DebugTree {
   constructor(writeStream) {
     this.writeStream = writeStream;
@@ -63,10 +49,12 @@ class DebugTree {
   }
 
   _process(type, depth) {
+    /* check if the depth parameter is a TreeLevel instance, otherwise use
+     * the default console.log method */
     if (depth instanceof TreeLevel) {
       const args = Array.prototype.slice.apply(arguments, [2]);
       const level = depth.num;
-      const text = level + '::' + args.join(' | ');
+      const text = args.join(' | ');
       if (level > this.indentation) {
         while (level > this.indentation) this._indent();
         this._write(text);
@@ -135,7 +123,22 @@ DebugTree.end = function () {
   }
 };
 
-DebugTree.Level = function(num) {
+/* A number class for representing depth in the console.log method calls */
+class TreeLevel {
+  constructor(num) {
+    this.num = num;
+  }
+
+  toJSON() {
+    return this.num;
+  }
+
+  toString() {
+    return this.num;
+  }
+}
+
+DebugTree.Level = function (num) {
   return new TreeLevel(num);
 };
 
