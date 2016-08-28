@@ -12,20 +12,23 @@ The debug tree library is used with the standard `console` methods (log, info, w
 const DebugTree = require('debug-tree');
 
 ...
+
 console.log(DebugTree.depth(0), 'Root Log 1');
 console.log(DebugTree.depth(1), 'Child Item 1');
 console.log(DebugTree.depth(1), 'Child Item 2');
 console.log(DebugTree.depth(2), 'Grand-Child Item 1');
 console.log(DebugTree.depth(2), 'Grand-Child Item 2');
 console.log(DebugTree.depth(0), 'Root Log 2');
+
+...
 ```
 The html output would look like:
 
  ![Example Output](Example-Screenshot.png)
 
 
-For the console.log to output to a html file, initialize the DebugTree at the
-start of the application (or at the start of your test cases)
+**For the console.log to output to a html file, initialize the DebugTree at the
+start of the application (or at the start of your test cases)**
 
 ```javascript
 const DebugTree = require('debug-tree');
