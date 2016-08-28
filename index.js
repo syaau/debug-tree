@@ -49,9 +49,9 @@ class DebugTree {
   }
 
   _process(type, depth) {
-    /* check if the depth parameter is a TreeLevel instance, otherwise use
+    /* check if the depth parameter is a TreeDepth instance, otherwise use
      * the default console.log method */
-    if (depth instanceof TreeLevel) {
+    if (depth instanceof TreeDepth) {
       const args = Array.prototype.slice.apply(arguments, [2]);
       const level = depth.num;
       const text = args.join(' | ');
@@ -124,7 +124,7 @@ DebugTree.end = function () {
 };
 
 /* A number class for representing depth in the console.log method calls */
-class TreeLevel {
+class TreeDepth {
   constructor(num) {
     this.num = num;
   }
@@ -138,8 +138,8 @@ class TreeLevel {
   }
 }
 
-DebugTree.Level = function (num) {
-  return new TreeLevel(num);
+DebugTree.depth = function (num) {
+  return new TreeDepth(num);
 };
 
 module.exports = DebugTree;
