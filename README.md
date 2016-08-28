@@ -19,7 +19,10 @@ console.log(DebugTree.depth(2), 'Grand-Child Item 1');
 console.log(DebugTree.depth(2), 'Grand-Child Item 2');
 console.log(DebugTree.depth(0), 'Root Log 2');
 ```
-![Example Output](Example-Screenshot.png)
+The html output would look like:
+
+ ![Example Output](Example-Screenshot.png)
+
 
 For the console.log to output to a html file, initialize the DebugTree at the
 start of the application (or at the start of your test cases)
@@ -32,3 +35,6 @@ DebugTree.start('output.html');
 // Use the DebugTree.end() method to end debugging with debug-tree.
 // DebugTree.end();
 ```
+### Thanks
+The library uses Collapsible lists javascript library from
+http://code.stephenmorley.org/javascript/collapsible-lists/.
