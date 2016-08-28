@@ -6,7 +6,7 @@ output
 `$ npm install --save-dev debug-tree`
 
 ### Usage
-The debug tree library is used with the standard `console` methods (log, info, warn, error). Just pass the first parameter as depth the first parameter.
+The debug tree library is used with the standard `console` methods (log, info, warn, error). Just pass the first parameter as depth value.
 
 ```javascript
 const DebugTree = require('debug-tree');
